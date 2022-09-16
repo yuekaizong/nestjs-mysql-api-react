@@ -37,7 +37,8 @@ const MenusTable = (props: Props) => {
   // api接口数据
   const [apiTableData, setApiTableData] = useState<AccessResDto[]>([]);
   const { accessRowData } = useSelector(
-    ({ access }: { access: AccessState }): AccessState => access
+    (state): AccessState => (state as any).present.access
+    // ({ access }: { access: AccessState }): AccessState => access
   );
   const dispatch = useDispatch();
   // 编辑行

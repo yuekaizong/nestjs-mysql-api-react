@@ -22,7 +22,10 @@ const dispatchMenuApiToRoleHandler = async (roleId: number, postData: RoleMenuAp
 };
 const RoleMenuModal = (props: Props) => {
   const { isRoleMenuVisible, setIsRoleMenuVisible } = props;
-  const { roleRowData } = useSelector(({ role }: { role: RoleState }): RoleState => role);
+  const { roleRowData } = useSelector(
+    (state): RoleState => (state as any).present.role
+    // { role }: { role: RoleState }): RoleState => role
+  );
   const [allMenus, setAllMenus] = useState<RoleMenusResDto[]>([]);
   const [menusTree, setMenusTree] = useState([]);
   const [checkIdList, setCheckIdList] = useState<string[]>([]);

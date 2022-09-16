@@ -40,7 +40,8 @@ const modifyAccessHandler = async (id: number, params: AccessReqDto) => {
 const AccessMenuModal = (props: Props) => {
   const { isAccessMenusVisible, setIsAccessMenusVisible, loadData, isNew } = props;
   const { accessRowData } = useSelector(
-    ({ access }: { access: AccessState }): AccessState => access
+    (state): AccessState => (state as any).present.access
+    // ({ access }: { access: AccessState }): AccessState => access
   );
   const [title, setTitle] = useState<string>('新增菜单');
   const [form] = Form.useForm();

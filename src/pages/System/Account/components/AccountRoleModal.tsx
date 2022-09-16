@@ -26,7 +26,8 @@ const AccountRoleModal = (props: Props) => {
   // 全部的角色ID
   const [allRoleList, setAllRoleIdList] = useState<AccountRoleDto[]>([]);
   const { accountRowData } = useSelector(
-    ({ account }: { account: AccountState }): AccountState => account
+    (state): AccountState => (state as any).present.account
+    // ({ account }: { account: AccountState }): AccountState => account
   );
   const [form] = Form.useForm();
 

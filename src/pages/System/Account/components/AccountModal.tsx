@@ -42,7 +42,8 @@ const modifyAccountHandler = async (id: number, params: AccountDto) => {
 const AccountModal = (props: Props) => {
   const { isModifyVisible, setIsModifyVisible, loadData } = props;
   const { accountRowData } = useSelector(
-    ({ account }: { account: AccountState }): AccountState => account
+    (state): AccountState => (state as any).present.account
+    // ({ account }: { account: AccountState }): AccountState => account
   );
   const [rowId, setRowId] = useState<number | null>();
   const [title, setTitle] = useState<string>('新增账号');

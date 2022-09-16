@@ -48,7 +48,8 @@ const Access = () => {
   const [isAccessMenusVisible, setIsAccessMenusVisible] = useState<boolean>(false);
   const dispatch = useDispatch();
   const { accessRowData } = useSelector(
-    ({ access }: { access: AccessState }): AccessState => access
+    (state): AccessState => (state as any).present.access
+    // ({ access }: { access: AccessState }): AccessState => access
   );
   // 获取模块数据
   const { tableProps: moduleTableData, search } = useAntdTable(getModuleData, {

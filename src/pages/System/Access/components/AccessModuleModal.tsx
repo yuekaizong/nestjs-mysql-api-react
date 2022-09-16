@@ -41,7 +41,8 @@ const AccessModuleModal = (props: Props) => {
   const { isAccessModalVisible, setIsAccessModalVisible, loadData } = props;
   const [title, setTitle] = useState<string>('新增模块');
   const { accessRowData } = useSelector(
-    ({ access }: { access: AccessState }): AccessState => access
+    (state): AccessState => (state as any).present.access
+    // ({ access }: { access: AccessState }): AccessState => access
   );
   const [form] = Form.useForm();
 
